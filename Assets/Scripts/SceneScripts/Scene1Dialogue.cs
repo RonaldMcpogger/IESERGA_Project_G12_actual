@@ -12,7 +12,7 @@ public class Scene1Dialogue : MonoBehaviour
     public class DLines
     {
 
-       [TextArea(3, 10)]
+        [TextArea(3, 10)]
         public string text;
     }
     [System.Serializable]
@@ -21,7 +21,7 @@ public class Scene1Dialogue : MonoBehaviour
         public List<string> Characters;
 
         public List<DLines> lines = new List<DLines>();
-      
+
 
     }
     // These are the script variables.
@@ -34,7 +34,7 @@ public class Scene1Dialogue : MonoBehaviour
     public TMP_Text Char1speech;
     public TMP_Text Char2name;
     public TMP_Text Char2speech;
-    
+
     //public TMP_Text Char3name;
     //public TMP_Text Char3speech;
 
@@ -58,13 +58,15 @@ public class Scene1Dialogue : MonoBehaviour
     //public AudioSource audioSource1;
     private bool allowSpace = true;
 
+
+    public GameObject inputField;
     // Set initial visibility. Added images or buttons need to also be SetActive(false);
 
 
-  
+
     void Start()
     {
-       
+        inputField.SetActive(false);
         DialogueDisplay.SetActive(false);
         ArtChar1a.SetActive(false);
         ArtBG1.SetActive(true);
@@ -136,7 +138,7 @@ public class Scene1Dialogue : MonoBehaviour
         else if (primeInt == 5)
         {
             Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "The Convention Relative to the Protection of Civilian Persons in Time of War.";
-            
+
             temColor.a = 0.50f;
             tem.color = temColor;
         }
@@ -144,30 +146,109 @@ public class Scene1Dialogue : MonoBehaviour
         {
             Synopsis.SetActive(false);
             DialogueDisplay.SetActive(true);
-            Char1name.text = "";
-            Char1speech.text = "";
+            Char1name.text = char1Dia.Characters[0];
+            Char1speech.text = char1Dia.lines[0].text;
             Char2name.text = "";
             Char2speech.text = "";
         }
         else if (primeInt == 7)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Why do you think I know anything?";
-            Char2name.text = "";
-            Char2speech.text = "";
+            Char1name.text = char1Dia.Characters[0];
+            Char1speech.text = char1Dia.lines[1].text;
+            //Char2name.text = "";
+            //Char2speech.text = "";
         }
         else if (primeInt == 8)
         {
+            Char1name.text = char1Dia.Characters[2];
+            Char1speech.text = " you wake up, confused, greeted with an unfamiliar place. The place is dark, dated, and seems to be a bit run-down";
+
+            // Turn off the "Next" button, turn on "Choice" buttons
+
+        }
+        else if (primeInt == 9)
+        {
+            Char1name.text = char1Dia.Characters[0];
+            Char1speech.text = "I remember going to bedÅc but when I woke up, I was here. In the uniform of a German officer. This isnÅft a dream, is it?";
+
+
+        }
+        else if (primeInt == 10)
+        {
+            Char1name.text = "";
+
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[1];
+            Char2speech.text = "Ah, our newest officer has arrived. I am Commandant Richter. You will be trained to lead, to command, and most importantly, to enforce discipline.";
+            // Turn off the "Next" button, turn on "Choice" buttons
+
+
+        }
+        else if (primeInt == 11)
+        {
+            Char1name.text = "";
+
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[1];
+            Char2speech.text = "Your decisions will shape the war. Remember this well, OfficerÅc. For now, sign here to officially start your training.";
+            // Turn off the "Next" button, turn on "Choice" buttons
+
+
+        }
+        else if (primeInt == 12)
+        {
+            Char1name.text = "";
+
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[2];
+            Char2speech.text = "Commandant Richter approaches you with a piece of paper.";
+            // Turn off the "Next" button, turn on "Choice" buttons
+
+
+        }
+        else if (primeInt == 13)
+        {
+            Char1name.text = "";
+
+            Char1speech.text = "";
+            Char2name.text = "";
+            Char2speech.text = "";
+            // Turn off the "Next" button, turn on "Choice" buttons
+            nextButton.SetActive(false);
+            allowSpace = false;
+            inputField.SetActive(true);
+            DialogueDisplay.SetActive(false);
+
+
+        }
+
+        else if (primeInt == 16)
+        {
             Char1name.text = "";
             Char1speech.text = "";
-            Char2name.text = "Jeda";
-            Char2speech.text = "Do not play the stupid. You will take me to him.";
+            Char2name.text = "";
+            Char2speech.text = "";
             // Turn off the "Next" button, turn on "Choice" buttons
             nextButton.SetActive(false);
             allowSpace = false;
             Choice1a.SetActive(true); // function Choice1aFunct()
             Choice1b.SetActive(true); // function Choice1bFunct()
         }
+
+        else if (primeInt == 17)
+        {
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = "";
+            Char2speech.text = "";
+            // Turn off the "Next" button, turn on "Choice" buttons
+            nextButton.SetActive(false);
+            allowSpace = false;
+            Choice1a.SetActive(true); // function Choice1aFunct()
+            Choice1b.SetActive(true); // function Choice1bFunct()
+        }
+
+
 
         // after choice 1a
         else if (primeInt == 20)
@@ -247,5 +328,17 @@ public class Scene1Dialogue : MonoBehaviour
     public void SceneChange2()
     {
         SceneManager.LoadScene("Scene2b");
+    }
+
+    public void readName(string s)
+    {
+        char1Dia.Characters[0] = s;
+        allowSpace = true;
+        nextButton.SetActive(true);
+        inputField.SetActive(false);
+        DialogueDisplay.SetActive(true);
+        Next();
+
+
     }
 }
