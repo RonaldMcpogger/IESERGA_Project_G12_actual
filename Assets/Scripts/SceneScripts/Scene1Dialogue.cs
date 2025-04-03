@@ -221,6 +221,17 @@ public class Scene1Dialogue : MonoBehaviour
 
 
         }
+        else if (primeInt == 14)
+        {
+            Char1name.text = "";
+
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[1];
+            Char2speech.text = "Very well. Follow me";
+          
+
+
+        }
 
         else if (primeInt == 16)
         {
