@@ -10,13 +10,14 @@ public class GameHandler : MonoBehaviour
 {
 
     public static int playerScore = 0;
+    public static string playerName = string.Empty;
 
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
     public AudioMixer mixer;
     public static float volumeLevel = 1.0f;
     private Slider sliderVolumeCtrl;
-
+    
     void Awake()
     {
         SetLevel(volumeLevel);

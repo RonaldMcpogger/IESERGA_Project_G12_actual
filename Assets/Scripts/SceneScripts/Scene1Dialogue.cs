@@ -61,6 +61,7 @@ public class Scene1Dialogue : MonoBehaviour
 
     public GameObject inputField;
     public TMP_InputField inputFieldText;
+    
     // Set initial visibility. Added images or buttons need to also be SetActive(false);
 
 
