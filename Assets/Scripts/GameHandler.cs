@@ -9,7 +9,7 @@ using UnityEngine.Audio;
 public class GameHandler : MonoBehaviour
 {
 
-    public static int playerStat1;
+    public static int playerScore = 0;
 
     public static bool GameisPaused = false;
     public GameObject pauseMenuUI;
@@ -81,6 +81,7 @@ public class GameHandler : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        playerScore = 0;
         SceneManager.LoadScene("MainMenu");
         // Please also reset all static variables here, for new games!
     }
