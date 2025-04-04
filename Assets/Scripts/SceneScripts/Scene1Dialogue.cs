@@ -60,6 +60,7 @@ public class Scene1Dialogue : MonoBehaviour
 
 
     public GameObject inputField;
+    public TMP_InputField inputFieldText;
     // Set initial visibility. Added images or buttons need to also be SetActive(false);
 
 
@@ -213,7 +214,7 @@ public class Scene1Dialogue : MonoBehaviour
             Char1speech.text = "";
             Char2name.text = "";
             Char2speech.text = "";
-            // Turn off the "Next" button, turn on "Choice" buttons
+            // Turn off the "Next" button, turn on "inputs" buttons
             nextButton.SetActive(false);
             allowSpace = false;
             inputField.SetActive(true);
@@ -226,27 +227,47 @@ public class Scene1Dialogue : MonoBehaviour
             Char1name.text = "";
 
             Char1speech.text = "";
-            Char2name.text = char1Dia.Characters[1];
+            Char2name.text = char1Dia.Characters[0];
             Char2speech.text = "Very well. Follow me";
           
 
 
         }
+        else if (primeInt == 15)
+        {
+            Char1name.text = "";
 
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[2];
+            Char2speech.text = "Commandant Richter gestures to the prisoner";
+
+
+
+        }
         else if (primeInt == 16)
         {
             Char1name.text = "";
+
             Char1speech.text = "";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off the "Next" button, turn on "Choice" buttons
-            nextButton.SetActive(false);
-            allowSpace = false;
-            Choice1a.SetActive(true); // function Choice1aFunct()
-            Choice1b.SetActive(true); // function Choice1bFunct()
+            Char2name.text = char1Dia.Characters[1];
+            Char2speech.text = "We have captured an enemy soldier who got left behind as they were retreating. A captured enemy. Surrendered, unarmed. What do you do";
+
+
+
+        }
+        else if (primeInt == 17)
+        {
+            Char1name.text = "";
+
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[2];
+            Char2speech.text = "ThereÅfs multiple ways to approach this. I could go the humane way, or do what is expected of me during this era.";
+
+
+
         }
 
-        else if (primeInt == 17)
+        else if (primeInt == 18)
         {
             Char1name.text = "";
             Char1speech.text = "";
@@ -259,6 +280,7 @@ public class Scene1Dialogue : MonoBehaviour
             Choice1b.SetActive(true); // function Choice1bFunct()
         }
 
+     
 
 
         // after choice 1a
@@ -341,9 +363,11 @@ public class Scene1Dialogue : MonoBehaviour
         SceneManager.LoadScene("Scene2b");
     }
 
-    public void readName(string s)
+    public void readName()
     {
-        char1Dia.Characters[0] = s;
+        char1Dia.Characters[0] = inputFieldText.text;
+     
+        Debug.Log(char1Dia.Characters[0].ToString());
         allowSpace = true;
         nextButton.SetActive(true);
         inputField.SetActive(false);
