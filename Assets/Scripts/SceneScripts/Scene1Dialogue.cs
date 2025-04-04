@@ -366,8 +366,9 @@ public class Scene1Dialogue : MonoBehaviour
 
     public void readName()
     {
-        char1Dia.Characters[0] = inputFieldText.text;
-     
+       
+        GameHandler.playerName = inputFieldText.text;
+        char1Dia.Characters[0] = GameHandler.playerName;
         Debug.Log(char1Dia.Characters[0].ToString());
         allowSpace = true;
         nextButton.SetActive(true);
