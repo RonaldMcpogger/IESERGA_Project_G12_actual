@@ -5,6 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using JetBrains.Annotations;
+using UnityEditor;
+using static UnityEngine.GridBrushBase;
+using Unity.VisualScripting;
 
 public class Scene1Dialogue : MonoBehaviour
 {
@@ -47,8 +51,12 @@ public class Scene1Dialogue : MonoBehaviour
 
 
     public GameObject ArtBG1;
+    //choices
+
     public GameObject Choice1a;
     public GameObject Choice1b;
+    public GameObject Choice1c;
+
     public GameObject NextScene1Button;
     public GameObject NextScene2Button;
     public GameObject nextButton;
@@ -77,6 +85,7 @@ public class Scene1Dialogue : MonoBehaviour
         NextScene1Button.SetActive(false);
         NextScene2Button.SetActive(false);
         nextButton.SetActive(true);
+        Choice1c.SetActive(false);
         Next();
     }
 
@@ -228,7 +237,7 @@ public class Scene1Dialogue : MonoBehaviour
             Char1name.text = "";
 
             Char1speech.text = "";
-            Char2name.text = char1Dia.Characters[0];
+            Char2name.text = char1Dia.Characters[1];
             Char2speech.text = "Very well. Follow me";
           
 
@@ -279,6 +288,7 @@ public class Scene1Dialogue : MonoBehaviour
             allowSpace = false;
             Choice1a.SetActive(true); // function Choice1aFunct()
             Choice1b.SetActive(true); // function Choice1bFunct()
+            Choice1c.SetActive(true); // function Choice1cFunct()
         }
 
      
@@ -287,43 +297,105 @@ public class Scene1Dialogue : MonoBehaviour
         // after choice 1a
         else if (primeInt == 20)
         {
-            //gameHandler.AddPlayerStat(1);
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "Jeda";
-            Char2speech.text = "Then you are no use to me, and must be silenced.";
+            Char2name.text = char1Dia.Characters[1];
+            Char2speech.text = "If you disobey, you may also suffer consequences in the future. A military without order is no military at all.";
+
         }
         else if (primeInt == 21)
         {
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "Jeda";
-            Char2speech.text = "Come back here! Do not think you can hide from me!";
-            // Turn off the "Next" button, turn on "Scene" button/s
-            nextButton.SetActive(false);
-            allowSpace = false;
-            NextScene1Button.SetActive(true);
+
+            GameHandler.playerScore += 2;
+            Synopsis.SetActive(true);
+            DialogueDisplay.SetActive(false);
+            Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Article 13: Prisoners of war must at all times be treated humanely. Any unlawful act causing death or serious harm is prohibited.";
+            temColor.a = 0.80f;
+
+            tem.color = temColor;
+        }
+        else if (primeInt == 22)
+        {
+
+            Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Article 15: The Detaining Power must provide necessary medical attention to prisoners.";
+
+            primeInt = 39;
         }
 
+
+
         // after choice 1b
+        else if (primeInt == 25)
+        {
+            //GameHandler.playerScore += 2;
+            Synopsis.SetActive(true);
+            DialogueDisplay.SetActive(false);
+            Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Article 15: The Detaining Power is responsible for providing necessary medical treatment to prisoners of war";
+            temColor.a = 0.80f;
+
+            tem.color = temColor;
+            primeInt = 39;
+
+        }
+        //after choice c
         else if (primeInt == 30)
         {
-            Char1name.text = "";
-            Char1speech.text = "";
-            Char2name.text = "Jeda";
-            Char2speech.text = "Do not think you can fool me, human. Where will we find him?";
+            GameHandler.playerScore -= 2;
+            Synopsis.SetActive(true);
+            DialogueDisplay.SetActive(false);
+            Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Article 13: Prisoners of war must not be killed, mistreated, or subjected to violence or intimidation.";
+            temColor.a = 0.80f;
+
+            tem.color = temColor;
+          
+
         }
+
         else if (primeInt == 31)
         {
-            Char1name.text = "YOU";
-            Char1speech.text = "Ragu hangs out in a rough part of town. I'll take you now.";
-            Char2name.text = "";
-            Char2speech.text = "";
-            // Turn off the "Next" button, turn on "Scene" button/s
-            nextButton.SetActive(false);
-            allowSpace = false;
-            NextScene2Button.SetActive(true);
+            Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Article 99: No prisoner may be punished without a fair trial and due process";
+
+
         }
+
+        else if (primeInt == 32)
+        {
+            
+            Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Article 130: The execution of a prisoner without proper trial is considered a grave breach of the Convention.";
+
+            primeInt = 39;
+
+        }
+
+
+
+        //to next scene
+
+        else if(primeInt ==40)
+        {
+            DialogueDisplay.SetActive(true);
+            Synopsis.SetActive(false);
+
+            Char1name.text = "";
+            Char1speech.text = "";
+            Char2name.text = char1Dia.Characters[1];
+            Char2speech.text = "our choices shape not just the battlefield, but history itself. War does not forget. Neither will you.";
+
+        }
+        else if (primeInt == 41)
+        {
+            Synopsis.SetActive(true);
+            DialogueDisplay.SetActive(false);
+         
+                Synopsis.transform.Find("synText").GetComponent<TMP_Text>().text = "Your decisions will affect your morality and future outcomes.";
+            temColor.a = 0.80f;
+            tem.color = temColor;
+        }
+
+        else if (primeInt == 42)
+        {
+           SceneManager.LoadScene("Act1");
+        }
+
+
 
         //Please do NOT delete this final bracket that ends the Next() function:
     }
@@ -331,30 +403,50 @@ public class Scene1Dialogue : MonoBehaviour
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and SceneChanges)
     public void Choice1aFunct()
     {
-        Char1name.text = "YOU";
-        Char1speech.text = "I don't know what you're talking about!";
-        Char2name.text = "";
-        Char2speech.text = "";
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = char1Dia.Characters[1];
+        Char2speech.text = "Correct. A wounded prisoner must be treated humanely. However, other commanding officers and soldiers do not believe in the humane treatment of prisoners and will give you the directive to do what we consider immoral.";
         primeInt = 19; // so hitting "NEXT" goes to primeInt==20!
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
+       
+
         nextButton.SetActive(true);
         allowSpace = true;
     }
     public void Choice1bFunct()
     {
-        Char1name.text = "YOU";
-        Char1speech.text = "Sure, anything you want... just lay off the club.";
-        Char2name.text = "";
-        Char2speech.text = "";
-        primeInt = 29; // so hitting "NEXT" goes to primeInt==30!
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text =char1Dia.Characters[1];
+        Char2speech.text = "A soldier follows orders, but rememberÅc neglect breeds resentment but sometimes, staying neutral is your best outcome.";
+        primeInt = 24; // so hitting "NEXT" goes to primeInt==30!
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
+
+
         nextButton.SetActive(true);
         allowSpace = true;
     }
 
+    public void choice1Cfunc()
+    {
+        Char1name.text = "";
+        Char1speech.text = "";
+        Char2name.text = char1Dia.Characters[1];
+        Char2speech.text = "You fool! Have you no heart?!This decision will follow you";
+        primeInt = 29; // so hitting "NEXT" goes to primeInt==30!
+        Choice1a.SetActive(false);
+        Choice1b.SetActive(false);
+        Choice1c.SetActive(false);
 
+
+        nextButton.SetActive(true);
+        allowSpace = true;
+    }
     public void SceneChange1()
     {
         SceneManager.LoadScene("Scene2a");
@@ -369,7 +461,7 @@ public class Scene1Dialogue : MonoBehaviour
        
         GameHandler.playerName = inputFieldText.text;
         char1Dia.Characters[0] = GameHandler.playerName;
-        Debug.Log(char1Dia.Characters[0].ToString());
+        Debug.Log(char1Dia.Characters[0]);
         allowSpace = true;
         nextButton.SetActive(true);
         inputField.SetActive(false);
