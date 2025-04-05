@@ -204,7 +204,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Schwarz_Mad_0: 7876948118705680317
+      Schwarz_Mad_1: 3756109503305088881
+      Schwarz_Mad_2: 5801007468970547886
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

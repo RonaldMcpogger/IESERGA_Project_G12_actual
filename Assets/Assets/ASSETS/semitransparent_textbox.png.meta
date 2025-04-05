@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      semitransparent_textbox_0: -1330300011651935798
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

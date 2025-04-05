@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Interrogation_Room_BG_0: -5887371830434530501
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

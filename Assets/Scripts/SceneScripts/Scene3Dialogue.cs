@@ -182,7 +182,7 @@ public class Scene3Dialogue : MonoBehaviour
             ArtBlack.SetActive(true);
             ArtChar2a.SetActive(false);
             Char2name.text = "";
-            Char2speech.text = "The unit moves forward. But later that night, as you try to sleep, the sounds of the groans and screams from the prisoners getting tortured echo in your headÖ";
+            Char2speech.text = "The unit moves forward. But later that night, as you try to sleep, the sounds of the groans and screams from the prisoners getting tortured echo in your head";
             // Turn off the "Next" button, turn on "Choice" buttons
         }
         else if (primeInt == 11)
@@ -452,7 +452,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 67)
         {
-            Char2speech.text = "Article 14: Respect for Prisonersí Honor and Rights";
+            Char2speech.text = "Article 14: Respect for PrisonersÅEHonor and Rights";
         }
         else if (primeInt == 68)
         {

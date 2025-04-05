@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      solid_textbox_0: 3016803724981719760
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

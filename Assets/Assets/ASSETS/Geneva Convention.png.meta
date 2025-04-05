@@ -516,7 +516,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Geneva Convention_0: -4623485893344908574
+      Geneva Convention_1: 2561473357844607112
+      Geneva Convention_10: -6327331851677970487
+      Geneva Convention_11: -1528713507316413876
+      Geneva Convention_12: -7602010286490357349
+      Geneva Convention_13: -5933897866002256897
+      Geneva Convention_14: 7153850172132161050
+      Geneva Convention_15: -6381615607873953750
+      Geneva Convention_2: -7583939303297558087
+      Geneva Convention_3: 6217313769361037419
+      Geneva Convention_4: -2432896970367597261
+      Geneva Convention_5: 6815845378342153638
+      Geneva Convention_6: -2175831665402529734
+      Geneva Convention_7: -6961728065648024802
+      Geneva Convention_8: -8835600677189080831
+      Geneva Convention_9: -4831113281229161646
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

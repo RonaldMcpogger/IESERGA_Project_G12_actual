@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Occupied_Town_BG_0: -9044302302912562408
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

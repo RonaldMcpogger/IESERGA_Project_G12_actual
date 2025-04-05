@@ -156,7 +156,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ending 3 - prison_0: 8686805891655391765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
