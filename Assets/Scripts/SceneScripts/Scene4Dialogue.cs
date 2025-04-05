@@ -72,9 +72,9 @@ public class Scene4Dialogue : MonoBehaviour
         Char2speech.text = "";
 
         ArtBG1.SetActive(false);
-        ArtBG1.SetActive(false);
-        ArtBG1.SetActive(false);
-        ArtBG1.SetActive(false);
+        ArtBG2.SetActive(false);
+        ArtBG3.SetActive(false);
+        ArtBG4.SetActive(false);
         if(GameHandler.playerScore >= 4)
         {
             ArtBG1.SetActive(true);

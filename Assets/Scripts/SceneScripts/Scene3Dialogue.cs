@@ -39,14 +39,18 @@ public class Scene3Dialogue : MonoBehaviour
     //public TMP_Text Char3speech;
 
     public GameObject DialogueDisplay;
-    public GameObject ArtChar1a;
 
-    //public GameObject ArtChar1b;
-    //public GameObject ArtChar1c;
-    //public GameObject ArtChar2;
+    public GameObject ArtChar1a;
+    public GameObject ArtChar1b;
+    public GameObject ArtChar1c;
+    public GameObject ArtChar2a;
+    public GameObject ArtChar2b;
+    public GameObject ArtSoldier;
 
 
     public GameObject ArtBG1;
+    public GameObject ArtCG;
+    public GameObject ArtBlack;
     public GameObject Choice1a;
     public GameObject Choice1b;
     public GameObject Choice2a;
@@ -64,8 +68,18 @@ public class Scene3Dialogue : MonoBehaviour
     void Start()
     {
         DialogueDisplay.SetActive(false);
+
         ArtChar1a.SetActive(false);
+        ArtChar1b.SetActive(false);
+        ArtChar1c.SetActive(false);
+        ArtChar2a.SetActive(false);
+        ArtChar2b.SetActive(false);
+        ArtSoldier.SetActive(false);
+
         ArtBG1.SetActive(true);
+        ArtCG.SetActive(false);
+        ArtBlack.SetActive(false);
+
         Choice1a.SetActive(false);
         Choice1b.SetActive(false);
         Choice2a.SetActive(false);
@@ -104,6 +118,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 2)
         {
+            ArtSoldier.SetActive(true);
             Char1name.text = "Soldier";
             Char1speech.text = "Herr Kommandant, our unit has captured several suspicious figures.";
             Char2name.text = "";
@@ -116,11 +131,13 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 4)
         {
+            ArtSoldier.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "You see the prisoners that your unit has captured and the Hauptmann Schwarz has tasked you to order your unit to interrogate these prisoners and get any information as well as their involvement with the enemy forces";
         }
         else if (primeInt == 5)
         {
+            ArtChar2a.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "Hauptmann Schwarz";
@@ -136,6 +153,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 8)
         {
+            ArtChar2a.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "";
@@ -149,6 +167,9 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 9)
         {
+            //ArtChar1a.SetActive(false);
+            ArtChar1a.SetActive(false);
+            ArtChar2a.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "Hauptmann Schwarz";
@@ -157,6 +178,9 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 10)
         {
+            ArtBG1.SetActive(false);
+            ArtBlack.SetActive(true);
+            ArtChar2a.SetActive(false);
             Char2name.text = "";
             Char2speech.text = "The unit moves forward. But later that night, as you try to sleep, the sounds of the groans and screams from the prisoners getting tortured echo in your head…";
             // Turn off the "Next" button, turn on "Choice" buttons
@@ -179,6 +203,8 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 23)
         {
+            ArtChar1a.SetActive(false);
+            ArtChar2b.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "Hauptmann Schwarz";
@@ -225,6 +251,8 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 30)
         {
+            ArtChar1a.SetActive(false);
+            ArtChar2b.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "Hauptmann Schwarz";
@@ -241,10 +269,13 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 33)
         {
+            ArtBG1.SetActive(false);
+            ArtBlack.SetActive(true);
             Char2speech.text = "Though you tried to uphold international law, your actions still weren't enough.";
         }
         else if (primeInt == 34)
         {
+            ArtChar2b.SetActive(false);
             Char2speech.text = "Article 3: Inhumane treatment and torture are prohibited in all circumstances, including in internal conflicts.";
         }
         else if (primeInt == 35)
@@ -257,6 +288,8 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 37)
         {
+            ArtChar1a.SetActive(false);
+            ArtChar2b.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "Hauptmann Schwarz";
@@ -277,6 +310,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 41)
         {
+            ArtChar2b.SetActive(false);
             Char2speech.text = "Later, some soldiers whisper about your failure to act and start to think that there is a possibility that you are a traitor.";
         }
         else if (primeInt == 42)
@@ -301,6 +335,8 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 47)
         {
+            ArtChar1a.SetActive(false);
+            ArtChar2b.SetActive(true);
             Char1name.text = "";
             Char1speech.text = "";
             Char2name.text = "Hauptmann Schwarz";
@@ -308,6 +344,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 48)
         {
+            ArtChar2b.SetActive(false);
             Char2name.text = "";
             Char2speech.text = "You are a little tense but keep your composure so the Hauptmann Schwarz won’t notice what you’re planning to do.";
         }
@@ -317,20 +354,28 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 50)
         {
+            ArtBG1.SetActive(false);
+            ArtCG.SetActive(true);
             Char2speech.text = "Afterwards, you ordered them that when night falls, they are to release the prisoners, explaining that they all either died or commited suicide during the interrogation.";
         }
         else if (primeInt == 51)
         {
+            ArtCG.SetActive(false);
+            ArtBlack.SetActive(true);
             Char2speech.text = "Sometime later...";
         }
         else if (primeInt == 52)
         {
+            ArtBG1.SetActive(true);
+            ArtBlack.SetActive(false);
+            ArtSoldier.SetActive(true);
             Char2speech.text = "";
             Char1name.text = "Soldier";
             Char1speech.text = "Kommandant, why did you disobey orders? Why are you risking your life for these prisoners?";
         }
         else if (primeInt == 53)
         {
+            ArtSoldier.SetActive(false);
             Char1name.text = GameHandler.playerName;
             Char1speech.text = "Allow me to ask you this question: Are we just psychopaths that solely rely on violent tactics?";
         }
@@ -344,6 +389,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 56)
         {
+            ArtChar1a.SetActive(true);
             Char1speech.text = "I choose to follow my heart, and abide by the International Laws made to help us maintain our humanity during these inhumane times.";
         }
         else if (primeInt == 57)
@@ -352,11 +398,16 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 58)
         {
+            ArtChar1a.SetActive(false);
+            ArtSoldier.SetActive(true);
             Char1name.text = "Soldier";
             Char1speech.text = "Sir yes sir!";
         }
         else if (primeInt == 59)
         {
+            ArtBG1.SetActive(false);
+            ArtBlack.SetActive(true);
+            ArtSoldier.SetActive(false);
             Char1name.text = "";
             Char1speech.text = "";
             Char2speech.text = "After the interrogation, some prisoners confessed and gave up, spilling valuable information, but a few committed suicide by biting on a cyanide pills hidden in their mouths.";
@@ -367,6 +418,9 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 61)
         {
+            ArtBG1.SetActive(true);
+            ArtBlack.SetActive(false);
+            ArtChar2b.SetActive(true);
             Char2name.text = "Hauptmann Schwarz";
             Char2speech.text = "Why were there no screams or any sounds from the prisoners? Did you disobey my orders!?";
         }
@@ -376,6 +430,7 @@ public class Scene3Dialogue : MonoBehaviour
         }
         else if (primeInt == 63)
         {
+            ArtChar2b.SetActive(false);
             Char2name.text = "";
             Char2speech.text = "";
             Char1name.text = GameHandler.playerName;
@@ -409,6 +464,7 @@ public class Scene3Dialogue : MonoBehaviour
     // FUNCTIONS FOR BUTTONS TO ACCESS (Choice #1 and SceneChanges)
     public void Choice1aFunct()
     {
+        ArtChar1a.SetActive(true);
         GameHandler.playerScore -= 2;
         Char1name.text = GameHandler.playerName;
         Char1speech.text = "On your command, Herr Hauptmann.";
@@ -422,6 +478,7 @@ public class Scene3Dialogue : MonoBehaviour
     }
     public void Choice1bFunct()
     {
+        ArtChar1a.SetActive(true);
         GameHandler.playerScore += 1;
         Char1name.text = GameHandler.playerName;
         Char1speech.text = "I’m afraid I cannot comply. These prisoners won’t cooperate with us and give us useful information if we torture them to death";
@@ -437,6 +494,8 @@ public class Scene3Dialogue : MonoBehaviour
 
     public void Choice2aFunct()
     {
+        ArtChar2b.SetActive(false);
+        ArtChar1a.SetActive(true);
         GameHandler.playerScore += 1;
         Char1name.text = GameHandler.playerName;
         Char1speech.text = "If you refuse to stop these brutal tactics, then I will have you reported to the higher ups!";
@@ -451,6 +510,8 @@ public class Scene3Dialogue : MonoBehaviour
     }
     public void Choice2bFunct()
     {
+        ArtChar2b.SetActive(false);
+        ArtChar1b.SetActive(true);
         GameHandler.playerScore -= 1;
         Char1name.text = GameHandler.playerName;
         Char1speech.text = "I...";
@@ -466,6 +527,8 @@ public class Scene3Dialogue : MonoBehaviour
 
     public void Choice2cFunct()
     {
+        ArtChar2b.SetActive(false);
+        ArtChar1a.SetActive(true);
         GameHandler.playerScore += 2;
         Char1name.text = GameHandler.playerName;
         Char1speech.text = "Very well. I will do as you say.";
